@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  * { box-sizing: border-box; }
+  a { color: #14110F; text-decoration: none; border-bottom: 1px solid #B9B4AC; }
+  a:hover { color: #6E6A65; border-bottom-color: #6E6A65; }
+  ::selection { background: #E4E2DF; }
+  @keyframes vmFade { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#ffffff;color:#14110F;font-family:'Jost',system-ui,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased">
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);border-bottom:1px solid #DEDBD6">
+    <div style="max-width:1360px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <div onClick="{{ goHome }}" style="cursor:pointer;font-family:'Playfair Display',Georgia,serif;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap">Victoria Mundell</div>
+      <nav style="display:flex;align-items:center;gap:26px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase">
+        <span onClick="{{ goHome }}" style="cursor:pointer" style-hover="color:#6E6A65">Work</span>
+        <span onClick="{{ goAbout }}" style="cursor:pointer" style-hover="color:#6E6A65">About</span>
+        <span onClick="{{ goContact }}" style="cursor:pointer" style-hover="color:#6E6A65">Contact</span>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1360px;margin:0 auto;padding:0 28px">
+      <div style="min-height:52vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 0 28px">
+        <div style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:#14110F">Interior Design</div>
+        <h1 style="margin:2px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(52px,13vw,190px);line-height:0.88;letter-spacing:-0.01em">Portfolio</h1>
+        <p style="margin:26px 0 0;max-width:56ch;font-size:16px;line-height:1.7;color:#4A463F;text-wrap:pretty">A collection of human-centred designs, shaped by culture, context, and well-being. Through concept, drawing, and documentation I explore the relationship between user needs and design solutions.</p>
+      </div>
+    </section>
+
+    <section style="max-width:1360px;margin:0 auto;padding:36px 28px 96px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid #DEDBD6;padding-bottom:14px;margin-bottom:32px">
+        <h2 style="margin:0;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;font-weight:400">Selected Work</h2>
+        <span style="font-size:12px;letter-spacing:0.14em;color:#8A857D">01 — 05</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:22px">
+
+        <div onClick="{{ openPang }}" style="cursor:pointer;display:flex;flex-direction:column;gap:16px">
+          <div style="aspect-ratio:2/3;background-image:url('uploads/3.png');background-size:657.5% auto;background-position:2.95% 83%;background-repeat:no-repeat;background-color:#EFEDEA" style-hover="opacity:0.86"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline"><span style="font-size:11px;letter-spacing:0.16em;color:#B0ABA3">01</span><span style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:0.02em;min-width:0;overflow-wrap:anywhere;min-height:69px">Pang Residence</span></div>
+            <div style="margin-top:auto;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#8A857D;white-space:nowrap">Residential · Vancouver</div>
+          </div>
+        </div>
+
+        <div onClick="{{ openStairs }}" style="cursor:pointer;display:flex;flex-direction:column;gap:16px">
+          <div style="aspect-ratio:2/3;background-image:url('uploads/3.png');background-size:657.5% auto;background-position:26.54% 83%;background-repeat:no-repeat;background-color:#EFEDEA" style-hover="opacity:0.86"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline"><span style="font-size:11px;letter-spacing:0.16em;color:#B0ABA3">02</span><span style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:0.02em;min-width:0;overflow-wrap:anywhere;min-height:69px">Stair Documentation</span></div>
+            <div style="margin-top:auto;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#8A857D;white-space:nowrap">Technical · Vancouver</div>
+          </div>
+        </div>
+
+        <div onClick="{{ openOlsson }}" style="cursor:pointer;display:flex;flex-direction:column;gap:16px">
+          <div style="aspect-ratio:2/3;background-image:url('uploads/3.png');background-size:657.5% auto;background-position:50.12% 83%;background-repeat:no-repeat;background-color:#EFEDEA" style-hover="opacity:0.86"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline"><span style="font-size:11px;letter-spacing:0.16em;color:#B0ABA3">03</span><span style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:0.02em;min-width:0;overflow-wrap:anywhere;min-height:69px">Olsson Residence</span></div>
+            <div style="margin-top:auto;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#8A857D;white-space:nowrap">Residential · Vancouver</div>
+          </div>
+        </div>
+
+        <div onClick="{{ openSwan }}" style="cursor:pointer;display:flex;flex-direction:column;gap:16px">
+          <div style="aspect-ratio:2/3;background-image:url('uploads/3.png');background-size:657.5% auto;background-position:73.71% 83%;background-repeat:no-repeat;background-color:#EFEDEA" style-hover="opacity:0.86"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline"><span style="font-size:11px;letter-spacing:0.16em;color:#B0ABA3">04</span><span style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:0.02em;min-width:0;overflow-wrap:anywhere;min-height:69px">The Swan Chair</span></div>
+            <div style="margin-top:auto;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#8A857D;white-space:nowrap">Product · Vancouver</div>
+          </div>
+        </div>
+
+        <div onClick="{{ openSkin }}" style="cursor:pointer;display:flex;flex-direction:column;gap:16px">
+          <div style="aspect-ratio:2/3;background-image:url('uploads/3.png');background-size:657.5% auto;background-position:97.3% 83%;background-repeat:no-repeat;background-color:#EFEDEA" style-hover="opacity:0.86"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline"><span style="font-size:11px;letter-spacing:0.16em;color:#B0ABA3">05</span><span style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:0.02em;min-width:0;overflow-wrap:anywhere;min-height:69px">Skin &amp; Steel</span></div>
+            <div style="margin-top:auto;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#8A857D;white-space:nowrap">Exhibition · Vancouver</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section style="background:#E4E2DF">
+      <div style="max-width:1360px;margin:0 auto;padding:72px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;align-items:start">
+        <div style="aspect-ratio:325/337;max-width:280px;background-image:url('uploads/2.png');background-size:590.8% 320.5%;background-position:4.08% 21.5%;background-repeat:no-repeat;background-color:#CFCCC7"></div>
+        <div style="display:flex;flex-direction:column;gap:18px;grid-column:span 2;min-width:0">
+          <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#5B564F">About</div>
+          <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.4vw,32px);line-height:1.35;max-width:34ch;text-wrap:pretty">As an interior design student, I have a heightened appreciation for how space shapes experience.</p>
+          <p style="margin:0;max-width:60ch;font-size:15px;line-height:1.75;color:#3C3833;text-wrap:pretty">I strive to create spaces that support rest, connection, and well-being, drawing inspiration from cultural context and hospitality design principles.</p>
+          <div><span onClick="{{ goAbout }}" style="cursor:pointer;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #14110F;padding-bottom:3px">Read more</span></div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isProject }}">
+    <section style="max-width:1360px;margin:0 auto;padding:44px 28px 24px">
+      <span onClick="{{ goHome }}" style="cursor:pointer;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#8A857D" style-hover="color:#14110F">← All work</span>
+      <div style="display:flex;align-items:flex-start;gap:26px;margin-top:34px">
+        <div style="min-width:0">
+          <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(32px,5vw,58px);line-height:1.02;text-transform:uppercase;letter-spacing:0.02em">{{ proj.title }}</h1>
+          <div style="margin-top:8px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#6E6A65;font-style:italic">{{ proj.place }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1360px;margin:0 auto;padding:22px 28px 8px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;border-top:1px solid #DEDBD6;padding-top:34px">
+        <div style="grid-column:span 2;min-width:0">
+          <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#8A857D;margin-bottom:14px">Design Description</div>
+          <p style="margin:0;font-size:16px;line-height:1.8;max-width:66ch;color:#26231F;text-wrap:pretty">{{ proj.body }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A857D">Concept</div>
+            <div style="font-size:15px">{{ proj.concept }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A857D">Type</div>
+            <div style="font-size:15px">{{ proj.type }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;min-height:101px">
+            <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A857D">Sheets</div>
+            <div style="font-size:15px">{{ proj.count }}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1360px;margin:0 auto;padding:44px 28px 20px">
+      <sc-if value="{{ twoCol }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(430px,1fr))">
+          <sc-for list="{{ sheets }}" as="sheet" hint-placeholder-count="4">
+            <figure onClick="{{ sheet.onOpen }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:12px">
+              <div style="border:1px solid #DEDBD6;background:#ffffff;overflow:hidden" style-hover="border-color:#14110F">
+                <sc-if value="{{ sheet.hasSrc }}"><img src="{{ sheet.src }}" alt="{{ sheet.label }}" style="display:block;width:100%;height:auto" /></sc-if>
+              </div>
+              <figcaption style="display:flex;gap:12px;align-items:baseline;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6E6A65">
+                <span style="color:#B0ABA3">{{ sheet.idx }}</span>
+                <span>{{ sheet.label }}</span>
+              </figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ oneCol }}">
+        <div style="display:grid;gap:38px;grid-template-columns:minmax(0,1fr);max-width:980px">
+          <sc-for list="{{ sheets }}" as="sheet" hint-placeholder-count="2">
+            <figure onClick="{{ sheet.onOpen }}" style="margin:0;cursor:zoom-in;display:flex;flex-direction:column;gap:12px">
+              <div style="border:1px solid #DEDBD6;background:#ffffff;overflow:hidden" style-hover="border-color:#14110F">
+                <sc-if value="{{ sheet.hasSrc }}"><img src="{{ sheet.src }}" alt="{{ sheet.label }}" style="display:block;width:100%;height:auto" /></sc-if>
+              </div>
+              <figcaption style="display:flex;gap:12px;align-items:baseline;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6E6A65">
+                <span style="color:#B0ABA3">{{ sheet.idx }}</span>
+                <span>{{ sheet.label }}</span>
+              </figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </sc-if>
+    </section>
+
+    <section style="max-width:1360px;margin:0 auto;padding:20px 28px 90px">
+      <div style="border-top:1px solid #DEDBD6;padding-top:26px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between">
+        <span onClick="{{ goPrev }}" style="cursor:pointer;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6E6A65" style-hover="color:#14110F">← {{ prevTitle }}</span>
+        <span onClick="{{ goNext }}" style="cursor:pointer;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6E6A65" style-hover="color:#14110F">{{ nextTitle }} →</span>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}">
+    <section style="max-width:1360px;margin:0 auto;padding:56px 28px 20px">
+      <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(38px,6vw,74px);line-height:1;text-transform:uppercase;letter-spacing:0.01em">Victoria Mundell</h1>
+      <div style="margin-top:12px;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#6E6A65">Interior Design Student · Coquitlam, BC</div>
+    </section>
+    <section style="max-width:1360px;margin:0 auto;padding:34px 28px 90px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:52px;border-top:1px solid #DEDBD6;padding-top:40px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:26px;min-width:0">
+          <div style="aspect-ratio:325/337;background-image:url('uploads/2.png');background-size:590.8% 320.5%;background-position:4.08% 21.5%;background-repeat:no-repeat;background-color:#CFCCC7"></div>
+          <p style="margin:0;font-size:15px;line-height:1.8;color:#26231F;text-wrap:pretty">As an interior design student, I have a heightened appreciation for how space shapes experience. My sensitivity to emotions informs a human-centered design approach that I take into each project. I strive to create spaces that support rest, connection, and well-being, drawing inspiration from cultural context and hospitality design principles.</p>
+          <p style="margin:0;font-size:15px;line-height:1.8;color:#26231F;text-wrap:pretty">When I'm not designing, I'm an avid world traveller, exploring new cultures and developing skills in a breadth of industries.</p>
+          <div><span onClick="{{ openResume }}" style="cursor:pointer;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #14110F;padding-bottom:3px">View résumé sheet</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:34px;min-width:0">
+          <div>
+            <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#8A857D;margin-bottom:14px;font-style:italic">Career Objective</div>
+            <p style="margin:0;font-size:15px;line-height:1.8;color:#26231F;text-wrap:pretty">After graduation, I hope to begin my career as a junior interior designer specializing in hospitality, wellness, and luxury spaces. I am interested in working closely with clients and users on both domestic and international projects, learning directly from different cultural approaches to space.</p>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#8A857D;margin-bottom:14px;font-style:italic">Professional Skills</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Problem solving</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Quick to new technology</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Communication and teamwork</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Project management</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Detail oriented</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:34px;min-width:0">
+          <div>
+            <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#8A857D;margin-bottom:14px;font-style:italic">Technical Skill</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Procreate</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">AutoCAD</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Photoshop</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">Illustrator</span>
+              <span style="font-size:13px;padding:6px 12px;background:#F1EFEC">InDesign</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#8A857D;margin-bottom:14px;font-style:italic">Education</div>
+            <div style="font-size:15px;line-height:1.7;color:#26231F">Bachelors of Interior Design<br />(expected April 2028)<br /><em style="color:#6E6A65">Kwantlen Polytechnic University, Richmond, BC</em></div>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#8A857D;margin-bottom:14px;font-style:italic">Professional Affiliation</div>
+            <div style="font-size:15px;color:#26231F">NEWH and IDS student member</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isContact }}">
+    <section style="max-width:1360px;margin:0 auto;padding:70px 28px 100px">
+      <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(40px,7vw,86px);line-height:1;text-transform:uppercase">Get in touch</h1>
+      <p style="margin:26px 0 0;max-width:52ch;font-size:16px;line-height:1.75;color:#4A463F;text-wrap:pretty">Open to junior interior design roles, internships, and co-ops.</p>
+      <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px;border-top:1px solid #DEDBD6;padding-top:34px">
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A857D">Email</div>
+          <a href="mailto:victoriamundell06@gmail.com" style="font-size:16px;word-break:break-word">victoriamundell06@gmail.com</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A857D">Phone</div>
+          <a href="tel:+16042268971" style="font-size:16px">+1 (604) 226-8971</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#8A857D">Based in</div>
+          <div style="font-size:16px">Coquitlam, BC, V3E3E6 Canada</div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <footer style="background:#E4E2DF;border-top:1px solid #D3D0CB">
+    <div style="max-width:1360px;margin:0 auto;padding:26px 28px;display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#3C3833">
+      <span>Victoria Mundell</span>
+      <a href="tel:+16042268971" style="border-bottom-color:#A9A49C">+1 (604) 226-8971</a>
+      <a href="mailto:victoriamundell06@gmail.com" style="border-bottom-color:#A9A49C">victoriamundell06@gmail.com</a>
+    </div>
+  </footer>
+
+  <sc-if value="{{ lbOpen }}">
+    <div onClick="{{ closeLb }}" style="position:fixed;inset:0;z-index:100;background:rgba(20,17,15,0.94);display:flex;align-items:center;justify-content:center;padding:56px 28px;animation:vmFade 160ms ease-out">
+      <sc-if value="{{ lbHasSrc }}"><img src="{{ lbSrc }}" alt="{{ lbLabel }}" style="max-width:100%;max-height:100%;object-fit:contain;background:#ffffff" /></sc-if>
+      <div style="position:absolute;top:18px;left:28px;right:28px;display:flex;justify-content:space-between;align-items:baseline;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="font-size:11px;letter-spacing:0.16em;color:#8A857D">{{ lbNumber }}</span><span style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:19px;line-height:1.2;text-transform:uppercase;letter-spacing:0.02em;color:#F6F4F1">{{ lbProject }}</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#B0ABA3"><span style="color:#8A857D">{{ lbIdx }}</span><span>{{ lbLabel }}</span></div>
+        </div>
+        <span onClick="{{ closeLb }}" style="cursor:pointer;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#DAD6D0">Close ✕</span>
+      </div>
+      <div style="position:absolute;bottom:18px;left:28px;right:28px;display:flex;justify-content:space-between;gap:20px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#DAD6D0">
+        <span onClick="{{ lbPrev }}" style="cursor:pointer">← Prev</span>
+        <span>{{ lbCounter }}</span>
+        <span onClick="{{ lbNext }}" style="cursor:pointer">Next →</span>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;galleryColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;one&quot;,&quot;two&quot;],&quot;default&quot;:&quot;two&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Gallery&quot;},&quot;showCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Gallery&quot;},&quot;showSheetIndex&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Gallery&quot;}}">
+class Component extends DCLogic {
+  state = { route: "home", pid: 0, lbList: null, lbIndex: 0 };
+
+  projects = [
+    {
+      number: "1", title: "Pang Residence", place: "Vancouver, British Columbia",
+      concept: "Unravel", type: "Residential interior",
+      body: "Inspired by the client's career as an aerial performer, the design draws from ideas of suspension, exposure, and unraveling movement, translating them into the home. Romantic and expressive in atmosphere, the space embodies a sense of feminine empowerment, creating a home that feels intimate, dramatic, and personal.",
+      sheets: [
+        { src: "uploads/4.png", label: "Concept & Space Planning" },
+        { src: "uploads/5.png", label: "Plans, Sections & Diagrams" },
+        { src: "uploads/6.png", label: "Ceiling & Lighting Design" },
+        { src: "uploads/7.png", label: "Kitchen" },
+        { src: "uploads/8.png", label: "Dining" },
+        { src: "uploads/9.png", label: "Ensuite" },
+        { src: "uploads/10.png", label: "Bedroom" }
+      ]
+    },
+    {
+      number: "2", title: "Stair Documentation", place: "Vancouver, British Columbia",
+      concept: "Unravel", type: "Technical drawing set",
+      body: "A construction document set for feature staircase in the Pang Residence loft. Includes plans at both levels, two sections, and a tread assembly detail. The stair is clad in microcement over a two-inch wood stringer, with a plaster clad baluster. Aircraft wire supports the weight of the baluster and is hidden among lighting system for a seamless transition.",
+      sheets: [
+        { src: "uploads/11.png", label: "Level 1 Stair Plan — ID 1.0" },
+        { src: "uploads/12.png", label: "Level 2 Stair Plan — ID 2.0" },
+        { src: "uploads/13.png", label: "Stair Section 1 — ID 3.0" },
+        { src: "uploads/14.png", label: "Stair Section 2 — ID 4.0" },
+        { src: "uploads/15.png", label: "Stair Detail — ID 5.0" }
+      ]
+    },
+    {
+      number: "3", title: "Olsson Residence", place: "Vancouver, British Columbia",
+      concept: "Ma 間 — purposeful space", type: "Residential interior",
+      body: "A culturally blended Japanese-Swedish residence inspired by the Japanese concept of ma (間), meaning purposeful space. The home balances negative space, materiality, and intentional niches to create a calm environment shaped by stillness and moments of pause.",
+      sheets: [
+        { src: "uploads/16.png", label: "Concept & Material Palette" },
+        { src: "uploads/17.png", label: "Ceiling & Lighting Design" },
+        { src: "uploads/18.png", label: "Entry" },
+        { src: "uploads/19.png", label: "Dining" },
+        { src: "uploads/20.png", label: "Bathroom" },
+        { src: "uploads/21.png", label: "Living — Modular System" },
+        { src: "uploads/22.png", label: "Living" },
+        { src: "uploads/23.png", label: "Meditation Den" },
+        { src: "uploads/24.png", label: "Kitchen — Adaptable Uses" },
+        { src: "uploads/25.png", label: "Kitchen" }
+      ]
+    },
+    {
+      number: "4", title: "The Swan Chair", place: "Product of Vancouver, British Columbia",
+      concept: "Mother Swan", type: "Furniture / product design",
+      body: "The Swan is an ergonomic rocking chair designed for older adults living with Alzheimer's or dementia. The chair aims to boost mood by relieving symptoms of depression and anxiety through soothing rocking motion, tactile Formica materials, a serene colour scheme, and soft curving lines. Its continuous curve is made possible through Formica's flexible laminating process, integrating ergonomic features such as lumbar support directly into the form, while colour contrast along the armrests and rockers supports recognition and orientation.",
+      sheets: [
+        { src: "uploads/26.png", label: "Concept, Specification & Dimensions" }
+      ]
+    },
+    {
+      number: "5", title: "Skin & Steel", place: "Vancouver, British Columbia",
+      concept: "Piercing", type: "Exhibition / retail interior",
+      body: "A high-end alternative jewellery exhibition space that explores the act of piercing and its relationship to the body. The interior contrasts cold industrial metalwork with soft skin-inspired materials and forms, sequencing visitors through origin, product display, and contemplation.",
+      sheets: [
+        { src: "uploads/27.png", label: "Concept, Mood Board & Space Planning" },
+        { src: "uploads/28.png", label: "Plan, Elevations & Exhibition Section" }
+      ]
+    }
+  ];
+
+  componentDidMount() {
+    this.onKey = (e) => {
+      if (!this.state.lbList) return;
+      if (e.key === "Escape") this.setState({ lbList: null });
+      if (e.key === "ArrowRight") this.step(1);
+      if (e.key === "ArrowLeft") this.step(-1);
+    };
+    window.addEventListener("keydown", this.onKey);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this.onKey); }
+
+  top() { try { window.scrollTo(0, 0); } catch (e) {} }
+  go(route, pid) { this.setState({ route: route, pid: pid == null ? this.state.pid : pid, lbList: null }); this.top(); }
+  step(d) {
+    const l = this.state.lbList; if (!l) return;
+    this.setState({ lbIndex: (this.state.lbIndex + d + l.length) % l.length });
+  }
+  pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+  renderVals() {
+    const cols = this.props.galleryColumns === "one" ? 1 : 2;
+    const proj = this.projects[this.state.pid] || this.projects[0];
+    const showCaptions = this.props.showCaptions !== false;
+    const showIdx = this.props.showSheetIndex !== false;
+    const lb = this.state.lbList;
+    const cur = lb ? lb[this.state.lbIndex] : null;
+    const prev = this.projects[(this.state.pid + this.projects.length - 1) % this.projects.length];
+    const next = this.projects[(this.state.pid + 1) % this.projects.length];
+
+    return {
+      isHome: this.state.route === "home",
+      isProject: this.state.route === "project",
+      isAbout: this.state.route === "about",
+      isContact: this.state.route === "contact",
+      goHome: () => this.go("home"),
+      goAbout: () => this.go("about"),
+      goContact: () => this.go("contact"),
+      openPang: () => this.go("project", 0),
+      openStairs: () => this.go("project", 1),
+      openOlsson: () => this.go("project", 2),
+      openSwan: () => this.go("project", 3),
+      openSkin: () => this.go("project", 4),
+      goPrev: () => this.go("project", (this.state.pid + this.projects.length - 1) % this.projects.length),
+      goNext: () => this.go("project", (this.state.pid + 1) % this.projects.length),
+      prevTitle: prev.title,
+      nextTitle: next.title,
+      proj: {
+        number: proj.number, title: proj.title, place: proj.place,
+        concept: proj.concept, type: proj.type, body: proj.body,
+        count: this.pad(proj.sheets.length) + " drawings"
+      },
+      oneCol: cols === 1,
+      twoCol: cols === 2,
+      sheets: proj.sheets.map((s, i) => ({
+        src: s.src,
+        hasSrc: !!s.src,
+        label: showCaptions ? s.label : "",
+        idx: showIdx ? this.pad(i + 1) : "",
+        onOpen: () => this.setState({ lbList: proj.sheets.map((x, j) => ({ src: x.src, label: x.label, idx: this.pad(j + 1), project: proj.title, number: this.pad(Number(proj.number)) })), lbIndex: i })
+      })),
+      openResume: () => this.setState({ lbList: [{ src: "uploads/2.png", label: "Résumé sheet", idx: "01", project: "Victoria Mundell", number: "" }], lbIndex: 0 }),
+      lbOpen: !!lb,
+      lbSrc: cur ? cur.src : "",
+      lbHasSrc: !!(cur && cur.src),
+      lbLabel: cur ? cur.label : "",
+      lbIdx: cur ? (cur.idx || "") : "",
+      lbProject: cur ? (cur.project || "") : "",
+      lbNumber: cur ? (cur.number || "") : "",
+      lbCounter: lb ? this.pad(this.state.lbIndex + 1) + " / " + this.pad(lb.length) : "",
+      closeLb: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lbList: null }); },
+      lbPrev: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.step(-1); },
+      lbNext: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.step(1); }
+    };
+  }
+}
+</script>
+</body>
+</html>
