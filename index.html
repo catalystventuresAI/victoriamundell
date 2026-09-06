@@ -325,7 +325,7 @@
           <div style="aspect-ratio:1/1;background-image:url('uploads/headshot.png');background-size:195.5% 110.4%;background-position:6.8% 54.9%;background-repeat:no-repeat"></div>
           <p style="margin:0;font-size:15px;line-height:1.8;color:#26231F;text-wrap:pretty">As an interior design student, I have a heightened appreciation for how space shapes experience. My sensitivity to emotions informs a human-centered design approach that I take into each project. I strive to create spaces that support rest, connection, and well-being, drawing inspiration from cultural context and hospitality design principles.</p>
           <p style="margin:0;font-size:15px;line-height:1.8;color:#26231F;text-wrap:pretty">When I'm not designing, I'm an avid world traveller, exploring new cultures and developing skills in a breadth of industries.</p>
-          <div><span onClick="{{ openResume }}" style="cursor:pointer;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #14110F;padding-bottom:3px">View résumé sheet</span></div>
+          <div><a href="assets/Victoria-Mundell-Resume.pdf" target="_blank" rel="noopener" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid #14110F;padding-bottom:3px">View Resume</a></div>
         </div>
         <div style="display:flex;flex-direction:column;gap:34px;min-width:0">
           <div>
@@ -542,7 +542,6 @@ class Component extends DCLogic {
         idx: showIdx ? this.pad(i + 1) : "",
         onOpen: () => this.setState({ lbList: proj.sheets.map((x, j) => ({ src: x.src, label: x.label, idx: this.pad(j + 1), project: proj.title, number: this.pad(Number(proj.number)) })), lbIndex: i })
       })),
-      openResume: () => this.setState({ lbList: [{ src: "uploads/2.png", label: "Résumé sheet", idx: "01", project: "Victoria Mundell", number: "" }], lbIndex: 0 }),
       lbOpen: !!lb,
       lbSrc: cur ? cur.src : "",
       lbHasSrc: !!(cur && cur.src),
