@@ -6,7 +6,6 @@ Static portfolio site. No build step.
 - `index.html` — the full site (home, projects, about, contact) with SEO metadata and structured data
 - `support.js` — runtime the page needs; keep it next to `index.html`
 - `images/` — project drawings, cover images, headshot
-- `Victoria-Mundell-Resume.pdf` — linked from "View Resume" on the About page
 - `favicon.svg`, `favicon-*.png`, `apple-touch-icon.png` — site icons
 - `robots.txt`, `sitemap.xml` — search engine files
 
